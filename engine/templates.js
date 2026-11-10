@@ -157,7 +157,7 @@ TPL.glyph = c => {
         const nm = shape.slice(5); const bb = PARTBB[nm]; const s0 = (c.size || 640) / Math.max(bb[2], bb[3]);
         const g = expo(seg(u, 0, 0.5), 6); const zp = GLYPH_PT[nm] || partPivot(nm);
         const m = new DOMMatrix().translate(cx, cy).scale(z).rotate((1 - g) * -12).scale(s0 * g).translate(-zp[0], -zp[1]);
-        if (g > 0.001) { drawPartShadow(nm, m, sh, sh, c.shadow || 'rgba(0,0,0,0.12)'); drawPart(nm, m); }
+        if (g > 0.001) { drawPartShadow(nm, m, sh, sh, c.shadow || 'rgba(0,0,0,0.12)'); if (c.shapeColor) FILL_OVERRIDE = col(c.shapeColor); drawPart(nm, m); FILL_OVERRIDE = null; }
       }
       const tc = c.textColor || 'ink';
       rise(c.tag, 140, 400, 'FS', 24, c.tagColor || 'a5', { t: u, t0: 0.15, ls: 5, st: 0.012, out: 1.1 });
@@ -472,12 +472,33 @@ TPL.mosaic = c => ({
   },
 });
 
+
+// lockup, stacked layout (for wide logos): logo rises, tagline / small line / URL pill + chip are centred underneath
+function stackLockup(c, uu, e, drift) {
+  const lh0 = c.logoH0 || c.logoH || 480, lh = c.logoH || 400, ly = c.logoY || 380;
+  drawLogo(logoBase(960, lerp(540, ly, e), lerp(lh0, lh, e) * drift));
+  rise(c.tagline, 960, ly + lh / 2 + 120, 'FD', fit(c.tagline, 'FD', 84, 1500), c.accent || 'a3', { t: uu, t0: 0.5, ls: 3, st: 0.02, al: 'c' });
+  rise(c.small, 960, ly + lh / 2 + 176, 'FR', 30, 'rgba(255,255,255,0.72)', { t: uu, t0: 0.64, st: 0.008, al: 'c' });
+  const wU = c.url ? tw(c.url, 'FS', 28) + 60 : 0, wC = c.chip ? tw(c.chip, 'FS', 19, 1.5) + 52 : 0; const tot = wU + wC + (wU && wC ? 16 : 0), y0 = ly + lh / 2 + 220, X0 = 960 - tot / 2;
+  const pe = expo(seg(uu, 0.92, 1.35), 6), ce = expo(seg(uu, 1.12, 1.55), 6);
+  if (c.url && pe > 0.001) { const w = Math.max(62, wU * pe); ctx.beginPath(); ctx.roundRect(X0, y0, w, 62, 31); ctx.fillStyle = col(c.accent || 'a3'); ctx.fill();
+    ctx.save(); ctx.beginPath(); ctx.roundRect(X0, y0, w, 62, 31); ctx.clip(); rise(c.url, X0 + 30, y0 + 41, 'FS', 28, c.urlText || 'ink', { t: uu, t0: 1.0, st: 0.01 }); ctx.restore(); }
+  if (c.chip && ce > 0.001) { const x0 = X0 + (wU ? wU + 16 : 0), w = Math.max(62, wC * ce);
+    ctx.save(); ctx.beginPath(); ctx.roundRect(x0, y0, w, 62, 31); ctx.strokeStyle = 'rgba(255,255,255,0.4)'; ctx.lineWidth = 2; ctx.stroke(); ctx.clip();
+    rise(c.chip, x0 + 26, y0 + 38, 'FS', 19, '#fff', { t: uu, t0: 1.2, ls: 1.5, st: 0.004 }); ctx.restore(); }
+  const bc = c.band || PAT.colors; const be = expo(seg(uu, 0.2, 0.9), 5); const o = (uu * 60) % 128;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, H - 14 * be, W, 14); ctx.clip();
+  for (let x = -128; x < W + 128; x += 128) { fillRect(x - o, H - 14, 64, 14, bc[0]); fillRect(x - o + 64, H - 14, 64, 14, bc[1]); }
+  ctx.restore();
+}
+
 // ------------------------------------------------------------ lockup
 // Logo slides left; wordmark, tagline, small line, URL pill, info chip; a pattern band runs along the bottom.
 TPL.lockup = c => ({
   bars: 2, bg: c.bg || 'bg',
   f(u) {
     const uu = Math.min(u, 3.5); const e = eio(seg(uu, 0, 0.75)); const drift = 1 + 0.014 * seg(uu, 0.75, 3.5);
+    if (c.layout === 'stack') return stackLockup(c, uu, e, drift);   // wide logos / wordmarks: logo on top, text centred below
     drawLogo(logoBase(lerp(960, 488, e), 540, lerp(560, 430, e) * drift));
     const X = 748; const wm = Math.min(104, 104 * 960 / tw(c.wordmark || '', 'FX', 104));
     rise(c.wordmark, X, 455, 'FX', wm, '#fff', { t: uu, t0: 0.32, st: 0.024 });

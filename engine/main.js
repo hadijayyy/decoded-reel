@@ -54,7 +54,8 @@ function initMosaic() {
   setFont('FD', s); const cap = ctx.measureText('H').actualBoundingBoxAscent; const gap = cap * 0.42; const tot = lines.length * cap + (lines.length - 1) * gap;
   lines.forEach((l, i) => tx(l, 320, 180 - tot / 2 + cap + i * (cap + gap), 'FD', s, mc.textColor || 'a3', 'c'));
   ctx = t2.getContext('2d');
-  fillRect(0, 0, 640, 360, mc.cardBg || mix(mc.bg || 'bg', '#ffffff', 0.06)); VIEW = new DOMMatrix(); drawLogo(logoBase(320, 180, 300));
+  const fk = mc.faceK || 560 / 1200, lh = mc.logoH || 560;   // faceK: face-on wall scale (wide logos: raise it); logoH: logo height in px
+  fillRect(0, 0, 640, 360, mc.cardBg || mix(mc.bg || 'bg', '#ffffff', 0.06)); VIEW = new DOMMatrix(); drawLogo(logoBase(320, 180, lh / (4 * fk)));
   ctx = save;
   const d1 = t1.getContext('2d').getImageData(0, 0, 640, 360).data, d2 = t2.getContext('2d').getImageData(0, 0, 640, 360).data;
   const crowd = mc.crowd || ['#232150', '#232150', '#2c2a5e', '#1d1c45', '#2c2a5e', '#3a1f45', '#183565', '#232150'];
@@ -68,9 +69,9 @@ function initMosaic() {
       dr: 5.05 + 0.25 * dn + hash(id * 4.1) * 0.3, jit: 0.94 + hash(id * 7.7) * 0.12,
     });
   }
-  MOS = { C: Cn, R: Rn, CELL: 40, CARD: 35, cards, Dface: F / (560 / 1200) };
+  MOS = { C: Cn, R: Rn, CELL: 40, CARD: 35, cards, Dface: F / fk };
   FINAL = document.createElement('canvas'); FINAL.width = W; FINAL.height = H;
-  ctx = FINAL.getContext('2d'); fillRect(0, 0, W, H, mc.bg || 'bg'); VIEW = new DOMMatrix(); drawLogo(logoBase(960, 540, 560)); ctx = save;
+  ctx = FINAL.getContext('2d'); fillRect(0, 0, W, H, mc.bg || 'bg'); VIEW = new DOMMatrix(); drawLogo(logoBase(960, 540, lh)); ctx = save;
 }
 
 function frame(t) {

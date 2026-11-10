@@ -1,0 +1,374 @@
+{
+ "title": "Haier Energy — Decoded (unofficial concept film)",
+ "source": "https://www.haier-energy.com/ — wordmark PNG traced to vector; facts from the site's About, Solutions and E-Tower pages",
+ "fps": 60,
+ "bpm": 120,
+ "grain": 0.07,
+ "music": {
+  "key": "E"
+ },
+ "palette": {
+  "bg": "#0d173a",
+  "ink": "#0d173a",
+  "paper": "#ffffff",
+  "a1": "#15569e",
+  "a2": "#0f2f66",
+  "a3": "#f8ed45",
+  "a4": "#2a7de1",
+  "a5": "#ffc928"
+ },
+ "fonts": {
+  "FD": "assets/fonts/display.woff2",
+  "FX": "assets/fonts/heavy.woff2",
+  "FS": "assets/fonts/ui.woff2",
+  "FR": "assets/fonts/body.woff2"
+ },
+ "hud": {
+  "tl": "HAIER ENERGY",
+  "bl": "CLEAN ENERGY · GREEN LIFE",
+  "br": "UNOFFICIAL CONCEPT"
+ },
+ "logo": {
+  "paths": "assets/logo_paths.json",
+  "viewBox": [
+   1720,
+   566
+  ],
+  "center": [
+   860,
+   283
+  ],
+  "outline": 0,
+  "inner": 1,
+  "frame": [
+   {
+    "i": 0
+   },
+   {
+    "i": 1
+   }
+  ],
+  "pattern": {
+   "x0": 752,
+   "period": 215,
+   "colors": [
+    "a4",
+    "a3"
+   ]
+  },
+  "order": [
+   "H",
+   "ai",
+   "e",
+   "rEn",
+   "ergy"
+  ],
+  "parts": {
+   "H": {
+    "pivot": [
+     255,
+     265
+    ],
+    "draw": [
+     {
+      "i": 2
+     }
+    ]
+   },
+   "ai": {
+    "pivot": [
+     445,
+     262
+    ],
+    "draw": [
+     {
+      "i": 3
+     },
+     {
+      "i": 4
+     },
+     {
+      "i": 5
+     }
+    ]
+   },
+   "e": {
+    "pivot": [
+     622,
+     280
+    ],
+    "draw": [
+     {
+      "i": 6
+     }
+    ]
+   },
+   "rEn": {
+    "pivot": [
+     888,
+     266
+    ],
+    "draw": [
+     {
+      "i": 7
+     },
+     {
+      "i": 8
+     },
+     {
+      "i": 9
+     }
+    ]
+   },
+   "ergy": {
+    "pivot": [
+     1310,
+     307
+    ],
+    "draw": [
+     {
+      "i": 10
+     },
+     {
+      "i": 11
+     },
+     {
+      "i": 12
+     },
+     {
+      "i": 13
+     }
+    ]
+   }
+  }
+ },
+ "timeline": [
+  {
+   "tpl": "hook",
+   "words": [
+    "DAY.",
+    "NIGHT.",
+    "ONE",
+    "NAME."
+   ],
+   "hud": "00 / 05"
+  },
+  {
+   "tpl": "decode",
+   "size": 600,
+   "hud": "00 / 05",
+   "explode": {
+    "H": [
+     -150,
+     150,
+     0
+    ],
+    "ai": [
+     15,
+     -150,
+     0
+    ],
+    "e": [
+     175,
+     150,
+     0
+    ],
+    "rEn": [
+     250,
+     -150,
+     0
+    ],
+    "ergy": [
+     190,
+     150,
+     0
+    ]
+   },
+   "labels": {
+    "H": [
+     "03",
+     "GROUP",
+     0,
+     -110
+    ],
+    "ai": [
+     "01",
+     "SUN",
+     0,
+     140
+    ],
+    "e": [
+     "02",
+     "STORE",
+     0,
+     -110
+    ],
+    "rEn": [
+     "04",
+     "SCALE",
+     0,
+     140
+    ],
+    "ergy": [
+     "05",
+     "SMART",
+     0,
+     -110
+    ]
+   },
+   "dive": {
+    "part": "H",
+    "in": 2
+   }
+  },
+  {
+   "tpl": "glyph",
+   "bg": "paper",
+   "shape": "part:ai",
+   "zoomItem": 3,
+   "shapeColor": "a3",
+   "size": 600,
+   "hud": "01 / 05",
+   "tag": "01 — BY DAY",
+   "title": "SOLAR",
+   "sub": [
+    "Make power from the sun",
+    "and use it right at home."
+   ],
+   "tagColor": "a1",
+   "shadow": "rgba(13,23,58,0.14)"
+  },
+  {
+   "tpl": "bars",
+   "bg": "a1",
+   "barColor": "a3",
+   "n": 4,
+   "hud": "02 / 05",
+   "textColor": "#ffffff",
+   "tagColor": "#f8ed45",
+   "tag": "02 — BY NIGHT",
+   "title": "STORED",
+   "sub": [
+    "Saved in the battery, used after dark.",
+    "E-Tower: 5 kWh a module, 10-year warranty."
+   ],
+   "subColor": "#dbe8f7"
+  },
+  {
+   "tpl": "slam",
+   "bg": "paper",
+   "wipeAccent": "a3",
+   "hud": "03 / 05",
+   "text": "HAIER",
+   "color": "ink",
+   "shadow": "#dfe6f3",
+   "odometer": {
+    "prefix": "SINCE ",
+    "from": 2025,
+    "to": 1984
+   },
+   "caption": "40 years of Haier Group. Haier Energy is 100% part of it.",
+   "captionColor": "rgba(13,23,58,0.78)"
+  },
+  {
+   "tpl": "count",
+   "hud": "04 / 05",
+   "value": 133,
+   "hero": "part:e",
+   "colors": [
+    "a1",
+    "a2"
+   ],
+   "label": "PLANTS",
+   "caption": "Haier Group's local production, in 15 countries",
+   "label2": "ONE GROUP.",
+   "caption2": "Solar, storage and power conversion."
+  },
+  {
+   "tpl": "roll",
+   "hud": "05 / 05",
+   "hero": "part:e",
+   "stats": [
+    {
+     "value": 15,
+     "label": "COUNTRIES",
+     "size": 185
+    },
+    {
+     "value": 71,
+     "label": "R&D CENTRES",
+     "size": 185
+    },
+    {
+     "value": 108,
+     "label": "CHANNEL CENTRES",
+     "size": 185
+    },
+    {
+     "value": 230,
+     "suffix": "K",
+     "label": "STORES",
+     "size": 185
+    }
+   ],
+   "list": {
+    "kicker": "FROM YOUR PHONE",
+    "title": "7 APPS",
+    "caption": "Monitor, control and optimise.",
+    "items": [
+     "hOn",
+     "NAHUI ENERGY",
+     "SMART CUBE",
+     "BALCONY KIT"
+    ],
+    "footnote": "WEB · IOS · ANDROID"
+   }
+  },
+  {
+   "tpl": "reassemble",
+   "size": 440,
+   "hud": "CLEAN ENERGY · GREEN LIFE",
+   "ring": "HAIER ENERGY · CLEAN ENERGY · GREEN LIFE",
+   "ringRadius": 470
+  },
+  {
+   "tpl": "mosaic",
+   "hud": "CLEAN ENERGY · GREEN LIFE",
+   "hudBL": "HAIER ENERGY",
+   "hudBR": "UNOFFICIAL CONCEPT",
+   "lines": [
+    "CLEAN",
+    "ENERGY."
+   ],
+   "textColor": "a3",
+   "stripes": [
+    "a1",
+    "a2"
+   ],
+   "crowd": [
+    "#101c46",
+    "#13224f",
+    "#0d173a",
+    "#10285a",
+    "#101c46"
+   ],
+   "cardBg": "#0f1b44",
+   "crowdSfx": false,
+   "faceK": 0.72,
+   "logoH": 425
+  },
+  {
+   "tpl": "lockup",
+   "layout": "stack",
+   "logoH0": 470,
+   "logoH": 400,
+   "logoY": 360,
+   "wordmark": "",
+   "tagline": "CLEAN ENERGY. GREEN LIFE.",
+   "small": "Solar · Storage · Smart home energy management",
+   "url": "haier-energy.com",
+   "chip": "UNOFFICIAL CONCEPT FILM",
+   "urlText": "ink"
+  }
+ ]
+}
