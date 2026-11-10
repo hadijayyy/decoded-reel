@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- "Orbit" — a fictional demo app icon, drawn for this example (not a real brand) -->
+  <rect x="10" y="10" width="580" height="580" rx="130" fill="#0f172a"/>
+  <rect x="34" y="34" width="532" height="532" rx="110" fill="#1e293b"/>
+  <path d="M110 300a190 190 0 1 0 380 0a190 190 0 1 0 -380 0zM150 300a150 150 0 1 1 300 0a150 150 0 1 1 -300 0z" fill="#6366f1"/>
+  <circle cx="300" cy="300" r="105" fill="#f8fafc"/>
+  <circle cx="455" cy="175" r="46" fill="#f43f5e"/>
+  <path d="M170 410 L188 452 L230 470 L188 488 L170 530 L152 488 L110 470 L152 452 Z" fill="#facc15"/>
+</svg>

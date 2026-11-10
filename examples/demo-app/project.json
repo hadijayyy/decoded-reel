@@ -1,0 +1,52 @@
+{
+  "title": "Orbit (fictional demo app) — Decoded",
+  "source": "fictional — logo.svg in this folder",
+  "fps": 60,
+  "bpm": 120,
+  "music": { "key": "A" },
+  "palette": {
+    "bg": "#0f172a", "ink": "#0f172a", "paper": "#f8fafc",
+    "a1": "#6366f1", "a2": "#4338ca", "a3": "#facc15", "a4": "#6366f1", "a5": "#f43f5e"
+  },
+  "fonts": { "FD": "assets/fonts/display.woff2", "FX": "assets/fonts/heavy.woff2", "FS": "assets/fonts/ui.woff2", "FR": "assets/fonts/body.woff2" },
+  "hud": { "tl": "ORBIT", "bl": "PLAN LESS · DO MORE", "br": "DEMO" },
+  "logo": {
+    "paths": "assets/logo_paths.json",
+    "viewBox": [600, 600],
+    "center": [300, 300],
+    "outline": 0,
+    "inner": 1,
+    "frame": [{ "i": 0 }, { "i": 1 }],
+    "order": ["ring", "planet", "moon", "spark"],
+    "parts": {
+      "ring":   { "pivot": [300, 300], "draw": [{ "i": 2 }] },
+      "planet": { "pivot": [300, 300], "draw": [{ "i": 3 }] },
+      "moon":   { "pivot": [455, 175], "draw": [{ "i": 4 }] },
+      "spark":  { "pivot": [170, 470], "draw": [{ "i": 5 }] }
+    }
+  },
+  "timeline": [
+    { "tpl": "hook", "words": ["ONE ICON.", "FOUR IDEAS."], "hud": "00 / 04" },
+    { "tpl": "decode", "hud": "00 / 04",
+      "explode": { "ring": [-470, 30, 0], "planet": [0, -30, 0], "moon": [430, -180, 0], "spark": [430, 140, 0.3] },
+      "labels": { "ring": ["01", "THE LOOP", 0, 230], "planet": ["02", "YOUR DAY", 0, 160], "moon": ["03", "THE NUDGE", 0, 110], "spark": ["04", "THE TEAM", 0, 110] },
+      "dive": { "part": "planet", "in": 3 } },
+    { "tpl": "glyph", "bg": "paper", "shape": "part:spark", "size": 560, "hud": "01 / 04",
+      "tag": "01 — THE LOOP", "title": "ONE PLACE", "sub": ["Calendar, tasks and notes", "in a single timeline."], "tagColor": "a5" },
+    { "tpl": "bars", "bg": "a1", "barColor": "a3", "n": 4, "hud": "02 / 04", "textColor": "#ffffff", "tagColor": "#ffffff",
+      "tag": "02 — YOUR DAY", "title": "FOUR BLOCKS", "sub": ["Focus, meet, make, rest.", "Planned for you each morning."], "subColor": "#e0e7ff" },
+    { "tpl": "slam", "bg": "a5", "wipeAccent": "a3", "hud": "03 / 04", "text": "SYNC", "color": "#ffffff", "shadow": "#be123c",
+      "odometer": { "prefix": "SINCE ", "from": 2026, "to": 2019 }, "caption": "Every device, every second.", "captionColor": "#ffe4e6" },
+    { "tpl": "count", "hud": "04 / 04", "value": 2400000, "hero": "part:moon", "colors": ["a1", "a2"],
+      "label": "PEOPLE", "caption": "Fictional demo numbers", "label2": "ONE ORBIT.", "caption2": "Plan less. Do more." },
+    { "tpl": "roll", "hud": "04 / 04", "hero": "part:moon",
+      "stats": [ { "value": 4, "label": "PLATFORMS" }, { "value": 38, "label": "LANGUAGES" }, { "value": 12, "suffix": "M", "label": "EVENTS / DAY" }, { "value": 99, "suffix": "%", "label": "ON-TIME" } ],
+      "list": { "kicker": "BUILT FOR", "title": "TEAMS", "caption": "From two people to two thousand.",
+                "items": ["DESIGN", "ENGINEERING", "SALES", "SUPPORT"], "footnote": "FICTIONAL DEMO DATA" } },
+    { "tpl": "reassemble", "hud": "PLAN LESS · DO MORE", "ring": "ORBIT · PLAN LESS · DO MORE" },
+    { "tpl": "mosaic", "hud": "PLAN LESS · DO MORE", "hudBL": "ORBIT", "hudBR": "DEMO", "lines": ["PLAN LESS.", "DO MORE."], "textColor": "a3",
+      "crowd": ["#172036", "#1b2540", "#141c30", "#22204a", "#172036"], "cardBg": "#1a2238", "crowdSfx": false },
+    { "tpl": "lockup", "wordmark": "ORBIT", "tagline": "PLAN LESS. DO MORE.", "small": "A fictional app, made for this demo.",
+      "url": "orbit.example", "chip": "iOS  ·  ANDROID  ·  WEB" }
+  ]
+}

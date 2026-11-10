@@ -1,0 +1,8 @@
+# Brand assets are trademarks / licensed fonts: fetched at build time, never committed
+examples/*/assets/
+projects/*/assets/
+**/build/
+*.mp4
+*.wav
+node_modules/
+__pycache__/

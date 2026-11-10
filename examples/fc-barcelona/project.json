@@ -1,0 +1,65 @@
+{
+  "title": "FC Barcelona — The Crest, Decoded",
+  "source": "https://www.fcbarcelona.com/en/",
+  "fps": 60,
+  "bpm": 120,
+  "grain": 0.07,
+  "music": { "key": "D" },
+  "palette": {
+    "bg": "#181733", "ink": "#0b0b14", "paper": "#ffffff",
+    "a1": "#004b95", "a2": "#a4234b", "a3": "#e2b900", "a4": "#ffdf00", "a5": "#db2f36"
+  },
+  "fonts": {
+    "FD": "assets/fonts/FC_BARCELONACONDENSEDPRO-Bold.woff2",
+    "FX": "assets/fonts/FC_BARCELONA-Extrabold.woff2",
+    "FS": "assets/fonts/FC_BARCELONA-Semibold.woff2",
+    "FR": "assets/fonts/FC_BARCELONA-Regular.woff2"
+  },
+  "icons": "assets/icons.json",
+  "hud": { "tl": "FC BARCELONA", "bl": "41.3809° N · 2.1228° E", "br": "EST. 1899" },
+  "logo": {
+    "paths": "assets/logo_paths.json",
+    "viewBox": [559.078, 566],
+    "center": [279.54, 283],
+    "outline": 0,
+    "inner": 1,
+    "maskStart": 2600,
+    "pattern": { "x0": 184.3, "period": 63.5, "colors": ["a1", "a2"] },
+    "frame": [{ "i": 0 }, { "i": 1 }],
+    "order": ["stripes", "ball", "city", "nation", "fcb"],
+    "parts": {
+      "stripes": { "pivot": [279.54, 403], "draw": [{ "i": 2 }, { "i": 3 }, { "i": 4 }, { "i": 5 }, { "i": 6 }] },
+      "ball":    { "pivot": [279.4, 401.4], "draw": [{ "circle": [279.4, 401.4, 58.6], "fill": "#000000" }, { "i": 7 }, { "i": 8 }, { "i": 9 }, { "i": 10 }] },
+      "city":    { "pivot": [175, 134], "draw": [{ "i": 11, "clip": [0, 0, 279.54, 233] }, { "i": 12 }, { "i": 13 }] },
+      "nation":  { "pivot": [384, 134], "draw": [{ "i": 11, "clip": [279.54, 0, 300, 233] }, { "i": 14 }, { "i": 15 }] },
+      "fcb":     { "pivot": [279.54, 268], "draw": [{ "i": 11, "clip": [0, 233, 560, 120] }] }
+    }
+  },
+  "timeline": [
+    { "tpl": "hook", "words": ["ONE", "CREST.", "FIVE", "STORIES."], "hud": "00 / 05" },
+    { "tpl": "decode", "hud": "00 / 05", "sweep": ["stripes"],
+      "land": { "ball": 0.56, "city": 0.64, "nation": 0.72, "fcb": 0.80 },
+      "explode": { "city": [-300, -140, -0.05], "nation": [300, -140, 0.05], "fcb": [-480, 70, 0], "ball": [480, 70, 0.4], "stripes": [0, 220, 0] },
+      "labels": { "city": ["01", "THE CITY", 0, -150], "nation": ["02", "CATALONIA", 0, -150], "fcb": ["03", "THE ORIGIN", 0, 110], "stripes": ["04", "THE MEMBERS", 0, 150], "ball": ["05", "THE GAME", 0, 132] },
+      "dive": { "part": "city", "in": 12, "notIn": [13] } },
+    { "tpl": "glyph", "bg": "paper", "shape": "plus", "color": "a5", "x": 1300, "hud": "01 / 05",
+      "tag": "01 — LA CIUTAT", "title": "THE CITY", "sub": ["The Cross of Saint George,", "from the arms of Barcelona."], "subColor": "#4a4a55", "shadow": "#ebe7df" },
+    { "tpl": "bars", "bg": "a4", "barColor": "a5", "n": 4, "hud": "02 / 05",
+      "tag": "02 — CATALUNYA", "title": "CATALONIA", "sub": ["The Senyera: four red bars", "on a field of gold."], "subColor": "#5c4a00" },
+    { "tpl": "slam", "bg": "a3", "wipeAccent": "a5", "hud": "03 / 05", "logoLetters": { "path": 11, "band": [236, 302] }, "shadow": "#c49f00",
+      "odometer": { "prefix": "29 · 11 · ", "from": 2026, "to": 1899 }, "caption": "Founded by Joan Gamper, Barcelona." },
+    { "tpl": "count", "hud": "04 / 05", "value": 151787, "hero": "part:ball",
+      "label": "MEMBERS", "caption": "Socis of FC Barcelona · 30 June 2026",
+      "label2": "OWNERS.", "caption2": "The members own the club." },
+    { "tpl": "roll", "hud": "05 / 05", "hero": "part:ball",
+      "stats": [ { "icon": "la-liga", "value": 29, "label": "LALIGA" }, { "icon": "copa-del-rey", "value": 32, "label": "COPA DEL REY" },
+                 { "icon": "champions-league", "value": 5, "label": "CHAMPIONS LEAGUE" }, { "icon": "club-world-cup", "value": 3, "label": "CLUB WORLD CUP" } ],
+      "list": { "kicker": "MADE IN", "title": "LA MASIA", "caption": "Barça’s own academy.",
+                "items": ["LAMINE YAMAL", "PAU CUBARSÍ", "AITANA BONMATÍ", "CLÀUDIA PINA"], "footnote": "ALL FOUR · 2026 FIFPRO WORLD XI" } },
+    { "tpl": "reassemble", "hud": "MÉS QUE UN CLUB", "ring": "MÉS QUE UN CLUB",
+      "fly": { "city": [0.5, -1500, -1000, -0.7], "nation": [0.625, 1500, -1000, 0.7], "fcb": [0.75, -1900, 120, 0], "stripes": [0.875, 0, 1300, 0], "ball": [1.0, 1700, 250, 7] } },
+    { "tpl": "mosaic", "hud": "MÉS QUE UN CLUB", "hudBL": "SPOTIFY CAMP NOU", "hudBR": "BARCELONA", "lines": ["MÉS QUE", "UN CLUB"], "textColor": "a3", "cardBg": "#24224f", "chant": true },
+    { "tpl": "lockup", "wordmark": "FC BARCELONA", "tagline": "MÉS QUE UN CLUB", "small": "More than a club. Since 1899.",
+      "url": "fcbarcelona.com", "chip": "NEXT AT SPOTIFY CAMP NOU  ·  BARÇA – VILLARREAL  ·  22 NOV" }
+  ]
+}
